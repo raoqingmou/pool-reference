@@ -80,7 +80,7 @@ class PoolServer:
         return inner
 
     async def index(self, _) -> web.Response:
-        return web.Response(text="Chia reference pool")
+        return web.Response(text="YM POOL")
 
     async def get_pool_info(self, _) -> web.Response:
         res: GetPoolInfoResponse = GetPoolInfoResponse(
@@ -285,7 +285,7 @@ async def start_pool_server(pool_store: Optional[AbstractPoolStore] = None):
     )
     runner = aiohttp.web.AppRunner(app, access_log=None)
     await runner.setup()
-    site = aiohttp.web.TCPSite(runner, "0.0.0.0", int(80))
+    site = aiohttp.web.TCPSite(runner, "0.0.0.0", int(8080))
     await site.start()
 
     while True:
